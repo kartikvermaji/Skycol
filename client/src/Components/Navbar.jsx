@@ -17,7 +17,7 @@ const Navbar = () => {
         <h1>SKYCOL</h1>
       </div>
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/about">About Us</Link>
         <Link to="/contact">Contact Us</Link>
       </div>

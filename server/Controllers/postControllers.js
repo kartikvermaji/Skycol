@@ -24,6 +24,24 @@ export const createPost = async (req, res) => {
     res.status(409).json({ message: err.message });
   }
 };
+export const addComments=async(req,res)=>{
+  try {
+   const {id}=req.params;
+   const {comment}=req.body;
+   const post= await POSTS.findById(id)
+   post.comments.push(comment);
+   await post.save();
+   const updatedPost = await POSTS.findByIdAndUpdate(
+    id,
+    { comments: post.comments },
+    { new: true }
+  );  
+   res.status(201).json(updatedPost);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
 
 export const getFeedPosts = async (req, res) => {
   try {
