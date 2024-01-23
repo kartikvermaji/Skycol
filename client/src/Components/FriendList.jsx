@@ -5,8 +5,8 @@ import axios from "axios";
 import Friend from "./friend";
 
 const FriendList = ({owner}) => {
-  const token = useSelector((state) => state.STATE.token);
-  const friends = useSelector((state) => state.STATE.user.friends);
+  const token = useSelector((state) => state.token);
+  const friends = useSelector((state) => state.user.friends);
   const dispatch=useDispatch();
 
   const getFriends = async () => {
@@ -25,7 +25,7 @@ const FriendList = ({owner}) => {
   return (<div>
     <ul>
     {friends.map((friend)=>(
-      <Friend value={friend} owner={owner}/>
+      <Friend value={friend} owner={owner} key={friend._id}/>
 ))}
     </ul>
   </div>);

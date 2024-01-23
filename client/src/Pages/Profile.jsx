@@ -11,7 +11,7 @@ import Feeds from "../Components/Feeds.jsx";
 const Profile = () => {
   const [user, setUser] = useState(null);
   const {userId} = useParams();
-  const token = useSelector((state) => state.STATE.token);
+  const token = useSelector((state) => state.token);
 
   const getUser = async () => {
     const res = await axios.get(`http://localhost:3001/user/${userId}`, {

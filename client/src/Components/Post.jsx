@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const Post = ({ post }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = useSelector((state) => state.STATE.token);
-  const loggedUser = useSelector((state) => state.STATE.user);
+  const token = useSelector((state) => state.token);
+  const loggedUser = useSelector((state) => state.user);
 
   const [comment, setComment] = useState("");
   const isLiked = Boolean(post.likes[loggedUser._id]);
@@ -53,7 +53,7 @@ const Post = ({ post }) => {
       );
       dispatch(setPost({ post: res.data }));
       // navigate('/home');
-      navigate(0);
+      // navigate(0);
     } catch (err) {
       console.error(err);
     }
@@ -105,7 +105,6 @@ const Post = ({ post }) => {
         ) : (
           <></>
         )}
-        <p>{comment}</p>
         <form action="" onSubmit={SubmitComment}>
           <input
             type="text"

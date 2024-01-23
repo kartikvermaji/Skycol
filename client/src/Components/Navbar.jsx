@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import state, { setLogout } from "../state/state";
 
 const Navbar = () => {
-  const auth = Boolean(useSelector((state) => state.STATE.token));
-  const user = useSelector((state) => state.STATE.user);
+  const auth = Boolean(useSelector((state) => state.token));
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handlelogout = async () => {
     dispatch(setLogout({}));

@@ -9,8 +9,8 @@ import Post from "./Post.jsx";
 const Feeds = ({ userId, isProfile = false }) => {
 
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.STATE.posts);
-  const token = useSelector((state) => state.STATE.token);
+  const posts = useSelector((state) => state.posts);
+  const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
     const response = await axios.get("http://localhost:3001/posts", {
@@ -42,7 +42,7 @@ const Feeds = ({ userId, isProfile = false }) => {
       {isProfile?<p>Users' Posts</p>:<p>Feeds</p>}
       <ul>
         {posts.map((post) => (
-         <Post post={post}/>
+         <Post post={post} key={post._id}/>
         ))}
       </ul>
     </div>

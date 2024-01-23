@@ -5,8 +5,8 @@ import axios from "axios"
 import { useState } from 'react'
 
 const NewPost = () => {
-    const user=useSelector((state)=>state.STATE.user)
-    const token=useSelector((state)=>state.STATE.token)
+    const user=useSelector((state)=>state.user)
+    const token=useSelector((state)=>state.token)
     const[image,setImage]=useState("");
     const[description,setdescription]=useState("");
     const [postOption,setPostOption]=useState(false)

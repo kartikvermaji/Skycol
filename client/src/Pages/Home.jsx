@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import FriendList from '../Components/FriendList.jsx'
 
 const Home = () => {
-  const user=useSelector((state)=>state.STATE.user);
+  const user=useSelector((state)=>state.user);
   return (
     <div>
       <Navbar/>

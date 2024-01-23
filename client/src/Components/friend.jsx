@@ -5,9 +5,9 @@ import { setFriends } from '../state/state.js';
 import axios from 'axios'
 
 const Friend = ({value,owner}) => {
-    const user = useSelector((state) => state.STATE.user)
-    const token = useSelector((state) => state.STATE.token);
-    const friends = useSelector((state) => state.STATE.user.friends);
+    const user = useSelector((state) => state.user)
+    const token = useSelector((state) => state.token);
+    const friends = useSelector((state) => state.user.friends);
     const dispatch=useDispatch()
 
     const isfriend=friends.find((friend)=>friend._id===value._id)

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const UProfile = ({owner}) => {  
-    // const user = useSelector((state) => state.STATE.user);
+    // const user = useSelector((state) => state.user);
 
   return (
     <div>
