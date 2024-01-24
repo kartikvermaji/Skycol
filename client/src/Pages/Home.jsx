@@ -5,11 +5,12 @@ import Feeds from "../Components/Feeds";
 import NewPost from "../Components/NewPost.jsx";
 import { useSelector } from "react-redux";
 import FriendList from "../Components/FriendList.jsx";
+import Footer from "../Components/Footer.jsx";
 
 const Home = () => {
   const user = useSelector((state) => state.user);
   return (
-    <div className="bg-slate-300  ">
+    <div className="bg-slate-300 h-[100%]  ">
       <Navbar />
       <div className=" p-2 lg:p-2 ">
         <UProfile owner={user} />

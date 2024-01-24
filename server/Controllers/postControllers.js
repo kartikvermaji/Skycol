@@ -4,6 +4,9 @@ import POSTS from "../Models/postModel.js";
 export const createPost = async (req, res) => {
   try {
     const { userId, description, picturePath } = req.body;
+    if(!userId||!description||!picturePath){
+      return res.status(409).json({ message:"Feilds incomplete" });
+    }
     const user = await USERS.findById(userId);
     const newPost = new POSTS({
       userId,
@@ -28,6 +31,9 @@ export const addComments=async(req,res)=>{
   try {
    const {id}=req.params;
    const {comment}=req.body;
+   if(!comment){
+    return res.status(409).json({ message:"Give Comment" });
+  }
    const post= await POSTS.findById(id)
    post.comments.push(comment);
    await post.save();

@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const About = () => {
   return (
     <div className="bg-slate-300">
       <Navbar></Navbar>
-      <div className=" flex flex-col w-[90vw] md:w-[40vw] items-center container mx-auto pt-36 text-center">
+      <div className="p-4 flex flex-col w-[90vw] md:w-[40vw] items-center container mx-auto pt-36 text-center">
         <p>
           Welcome to our custom social media platform, a dynamic and engaging
           space crafted with cutting-edge MERN stack technologies. Rooted in
@@ -70,6 +71,7 @@ const About = () => {
           community!
         </p>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { SnackbarProvider } from "notistack";
 //redux-persist
-import authReducer from "./state/state.js"
-import {configureStore} from "@reduxjs/toolkit"
-import { Provider } from 'react-redux';
+import authReducer from "./state/state.js";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
 import {
   persistStore,
   persistReducer,
@@ -32,19 +33,15 @@ const store = configureStore({
     }),
 });
 
-// const store=configureStore({
-//   reducer:{
-//    STATE:authReducer
-//   }
-// })
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-        <Provider store={store}>
+    <Provider store={store}>
       <PersistGate loading={null} persistor={persistStore(store)}>
-        <App />
+        <SnackbarProvider>
+          <App />
+        </SnackbarProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>
-)
+);

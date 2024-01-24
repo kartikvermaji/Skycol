@@ -6,13 +6,16 @@ import {
   faGhost
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSnackbar} from 'notistack'
 
 const Navbar = () => {
+  const {enqueueSnackbar}=useSnackbar();
   const auth = Boolean(useSelector((state) => state.token));
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handlelogout = async () => {
     dispatch(setLogout({}));
+    enqueueSnackbar("User Logged out Successfully",{variant:"success"})
   };
 
   return (

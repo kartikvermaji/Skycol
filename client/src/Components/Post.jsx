@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import state, { setFriends, setPost } from "../state/state";
 import axios from "axios";
+import { useSnackbar} from 'notistack'
 import { useNavigate } from "react-router-dom";
 import {
   faUserPlus,
@@ -14,6 +15,7 @@ import { faHeart as FaLineHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Post = ({ post }) => {
+  const {enqueueSnackbar}=useSnackbar();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
@@ -47,6 +49,7 @@ const Post = ({ post }) => {
         headers: { authorization: token },
       }
     );
+    enqueueSnackbar("FreindList Updated",{variant:"success"})
     dispatch(setFriends({ friends: res.data }));
   };
   const SubmitComment = async () => {
@@ -61,10 +64,10 @@ const Post = ({ post }) => {
         }
       );
       dispatch(setPost({ post: res.data }));
-      // navigate('/home');
-      // navigate(0);
+      enqueueSnackbar("Comment Posted",{variant:"success"})
     } catch (err) {
       console.error(err);
+      enqueueSnackbar("Comment is Empty!",{variant:"error"})
     }
   };
   return (
@@ -120,7 +123,7 @@ const Post = ({ post }) => {
           <img
             src={post.picturePath}
             alt="User-pic"
-            className="md:h-[40rem] h-[50vh] md:w-[40vw] lg:w-[30vw] mx-auto w-[80vw] md:my-2 object-cover rounded-xl shadow-xl shadow-slate-500"
+            className="md:h-[35rem] h-[50vh] md:w-[40vw] lg:w-[30vw] mx-auto w-[80vw] md:my-2 object-cover rounded-xl shadow-xl shadow-slate-500"
           />
         )}
 

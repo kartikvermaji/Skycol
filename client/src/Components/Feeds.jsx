@@ -42,12 +42,12 @@ const Feeds = ({ userId, isProfile = false }) => {
       <div className="my-2">
       
       </div>
-      
-      <ul>
+      {posts.length?(<ul>
         {posts.map((post) => (
          <Post post={post} key={post._id}/>
         ))}
-      </ul>
+      </ul>):(<p className="text-2xl font-semibold">No Posts To Display</p>)}
+      
     </div>
     
   );

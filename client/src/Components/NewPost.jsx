@@ -4,10 +4,12 @@ import state from "../state/state";
 import axios from "axios";
 import { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useSnackbar} from 'notistack'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NewPost = () => {
+  const {enqueueSnackbar}=useSnackbar();
   const user = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const [image, setImage] = useState("");
@@ -31,9 +33,10 @@ const NewPost = () => {
           headers: { authorization: token },
         }
       );
-      alert("New post Uploaded!");
+      enqueueSnackbar("Post Uploaded Successfuly!",{variant:"success"})
     } catch (err) {
       console.error(err);
+      enqueueSnackbar("Please fill all feilds",{variant:"error"})
     }
   };
 

@@ -33,7 +33,7 @@ const Friend = ({ value, owner }) => {
 
   return (
     <div className="flex my-2 border-b-2 pb-2 border-slate-400 justify-between">
-      {console.log(value)}
+     
       <div className="flex " onClick={() => {
                 navigate(`/profile/${value._id}`);
               }}>
@@ -53,10 +53,7 @@ const Friend = ({ value, owner }) => {
           <p className="text-slate-500">{value.occupation}</p>
         </div>
       </div>
-      {
-        console.log("user:",user)}
-        {console.log("value:",value)
-      }
+    
 {user._id===value._id?(<p></p>):( <button onClick={() => handleFriend()} className="mr-2 bg-slate-900 text-slate-100 h-12 w-12 mt-2  hover:bg-slate-300 hover:text-slate-900 rounded-full">
         {isfriend ? <FontAwesomeIcon icon={faUserMinus} /> :<FontAwesomeIcon icon={faUserPlus} />}
       </button>)}

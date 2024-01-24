@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { setLogin } from '../state/state.js'
 import axios from "axios"
 import Navbar from '../Components/Navbar.jsx'
+import { useSnackbar} from 'notistack'
 
 const LoginPage = () => {
     const[account,setaccount]=useState(true);
@@ -14,22 +15,27 @@ const LoginPage = () => {
     <div className='bg-slate-300 w-full h-[160vh] lg:h-[110vh] font-sans'>
         <Navbar></Navbar>
         LOGIN/REGISTER
-        <div className='container mx-auto md:mt-30 mt-24  md:w-[35vw] w-[90vw] text-center bg-slate-100 rounded-xl p-4 shadow-2xl '>
+        <div className='container  mx-auto md:mt-30 mt-24  md:w-[35vw] w-[90vw] text-center bg-slate-100 rounded-xl p-4 shadow-2xl '>
         {account?<div>
             <LOGIN/>
             <p onClick={handleclick} className='mt-3 hover:font-semibold'>Don't have account? Regsiter Here</p>
+            
         </div>
+        
         :<div>
             <REGISTER/>
             <p onClick={handleclick}  className='mt-3 hover:font-semibold'>ALready has a account? Login here</p>
             </div>}
             </div>
+            
+            
     </div>
   )
 }
 export default LoginPage
 
 const LOGIN=()=>{
+    const {enqueueSnackbar}=useSnackbar();
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const[formData,setFormDate]=useState({
@@ -53,13 +59,14 @@ const LOGIN=()=>{
                 })
             )
             navigate('/home');
-            alert("Logged In!");
+            enqueueSnackbar("Logged in Successfully!",{variant:"success"})
           } catch (err) {
+            enqueueSnackbar("Incorrect Credentials",{variant:"error"})
             console.error(err);
           }
     }
     return(
-        <div>
+        <div className=''>
             <h1 className='text-2xl font-semibold '>Login</h1>
             <form action="" onSubmit={handleSubmit} className='container mx-auto mt-5 flex flex-col items-center'>
                 <input type="text" placeholder='Email'    id='email'    value={formData.email}    onChange={handleChange} className='md:w-[30vw] p-3 m-3 rounded-full text-center text-xl items-center  text-slate-600 hover:text-white hover:bg-slate-900 hover:shadow-2xl' />
@@ -74,6 +81,7 @@ const LOGIN=()=>{
 
 
 const REGISTER=()=>{
+    const {enqueueSnackbar}=useSnackbar();
     const[formData,setFormDate]=useState({
         firstName:"",
         lastName:"",
@@ -93,8 +101,9 @@ const REGISTER=()=>{
         e.preventDefault();
         try {
             const response=await axios.post("http://localhost:3001/auth/register", formData);
-            alert("Registration done!");
+            enqueueSnackbar("User Registered Successfully!",{variant:"success"})
           } catch (err) {
+            enqueueSnackbar("Please fill all the Feilds",{variant:"error"})
             console.error(err);
           }
     }
