@@ -38,8 +38,11 @@ const Feeds = ({ userId, isProfile = false }) => {
 
   return (
 
-    <div>
-      {isProfile?<p>Users' Posts</p>:<p>Feeds</p>}
+    <div className="container flex-col items-center mx-auto bg-slate-300 rounded-3xl    md:rounded-xl w-[90vw] md:w-[50vw] lg:w-[40vw] md:mt-10 md:my-4 md:px-4 flex">
+      <div className="my-2">
+      
+      </div>
+      
       <ul>
         {posts.map((post) => (
          <Post post={post} key={post._id}/>

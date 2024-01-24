@@ -29,9 +29,14 @@ const Profile = () => {
       
       <Navbar />
       PROFILE
+      <div className="bg-slate-300 p-2 lg:p-2 mt-10">
       <UProfile owner={user} />
+      <div className="container mx-auto items-center left-2 md:left-[20vw] lg:left-[0vw]  md:relative z-1">
+        <Feeds userId={user} isProfile  /></div>
+      
       <FriendList owner={user}/>
-      <Feeds userId={user} isProfile  />
+      
+      </div>
       
     </div>
   );

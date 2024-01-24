@@ -1,41 +1,68 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { setFriends } from '../state/state.js';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFriends } from "../state/state.js";
 
-import axios from 'axios'
+import {
+  faUserPlus,
+  faUserMinus,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Friend = ({value,owner}) => {
-    const user = useSelector((state) => state.user)
-    const token = useSelector((state) => state.token);
-    const friends = useSelector((state) => state.user.friends);
-    const dispatch=useDispatch()
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-    const isfriend=friends.find((friend)=>friend._id===value._id)
+const Friend = ({ value, owner }) => {
+  const user = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
+  const friends = useSelector((state) => state.user.friends);
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
 
-    const handleFriend=async()=>{
-        const res=await axios.patch( `http://localhost:3001/user/${user._id}/${value._id}`,{},
-        {
-              headers:{authorization:token}
-        })
-        dispatch(setFriends({friends:res.data}))
-    }
+  const isfriend = friends.find((friend) => friend._id === value._id);
+
+  const handleFriend = async () => {
+    const res = await axios.patch(
+      `http://localhost:3001/user/${user._id}/${value._id}`,
+      {},
+      {
+        headers: { authorization: token },
+      }
+    );
+    dispatch(setFriends({ friends: res.data }));
+  };
 
   return (
-    <div>
-         <img
-                src={
-                  value.userPicturePath
-                    ? value.userPicturePath
-                    : "https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
-                }
-                alt="User-pic"
-                className="h-10 w-10"
-              />
-      <p>{value.firstName} {value.lastName}</p>
-      <p>{value.occupation}</p>
-      <button onClick={()=>handleFriend()}>{isfriend?"UnFriend":"Friend"}</button>
+    <div className="flex my-2 border-b-2 pb-2 border-slate-400 justify-between">
+      {console.log(value)}
+      <div className="flex " onClick={() => {
+                navigate(`/profile/${value._id}`);
+              }}>
+        <img
+          src={
+            value.picturePath
+              ? value.picturePath
+              : "https://cdn.icon-icons.com/icons2/1736/PNG/512/4043234-animal-avatar-bear-russian_113283.png"
+          }
+          alt="User-pic"
+          className="h-16 w-16 rounded-full"
+        />
+        <div className="p-2">
+          <p className="text-lg font-semibold ">
+            {value.firstName} {value.lastName}
+          </p>
+          <p className="text-slate-500">{value.occupation}</p>
+        </div>
+      </div>
+      {
+        console.log("user:",user)}
+        {console.log("value:",value)
+      }
+{user._id===value._id?(<p></p>):( <button onClick={() => handleFriend()} className="mr-2 bg-slate-900 text-slate-100 h-12 w-12 mt-2  hover:bg-slate-300 hover:text-slate-900 rounded-full">
+        {isfriend ? <FontAwesomeIcon icon={faUserMinus} /> :<FontAwesomeIcon icon={faUserPlus} />}
+      </button>)}
+     
     </div>
-  )
-}
+  );
+};
 
-export default Friend
+export default Friend;
