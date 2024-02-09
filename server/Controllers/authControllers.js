@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import USERS from "../Models/userModel.js";
 
+
 //Register User
 export const Register = async (req, res) => {
   try {
