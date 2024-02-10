@@ -42,20 +42,20 @@ const Footer = () => {
             <h2>Follow Us</h2>
             <div className="space-x-2">
               <a
-                href="https://www.linkedin.com/in/kartik-verma-037238259"
+                href="https://www.linkedin.com/in/jatin-097511212"
                 className="hover:text-slate-400"
               >
                 Linkedin
               </a>
               <a
-                href="https://github.com/kartikvermaji"
+                href="https://github.com/Jatin69XD"
                 className="hover:text-slate-400"
               >
                 {" "}
                 Github
               </a>
               <a
-                href="mailto:kartikvermaji03@gmail.com"
+                href="mailto:jatin662413@gmail.com" 
                 className="hover:text-slate-400"
               >
                 Gmail
@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div class="footer-bottom">
           <p>&copy; 2024 SKYCOL | All Rights Reserved</p>
-          <p>Author: Kartik Verma</p>
+          <p>Author: </p>jatin
         </div>
       </footer>
     </div>
