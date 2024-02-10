@@ -21,11 +21,11 @@ export default function App() {
          <Route path="/" element={<LoginPage/>}/>
          <Route
               path="/home"
-              element={auth ?<Home/> : <Home/> }
+              element={auth ?<Home/> : <Navigate to="/" />}
             />
             <Route
               path="/profile/:userId"
-              element={auth ? <Profile/> : <Profile/>}
+              element={auth ? <Profile/> : <Navigate to="/" />}
             />
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>

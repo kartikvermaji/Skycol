@@ -20,19 +20,19 @@ const Footer = () => {
             <p>
               Email:{" "}
               <a
-                href="mailto:kartikvermaji03@gmail.com"
+                href="mailto:jatin662413@gmail.com"
                 className="hover:text-slate-400"
               >
-                kartikvermaji03@gmail.com
+                jatin662413@gmail.com
               </a>
             </p>
             <p>
               Linkedin:
               <a
-                href="https://www.linkedin.com/in/kartik-verma-037238259"
+                href="https://www.linkedin.com/in/jatin-097511212"
                 className="hover:text-slate-400"
               >
-                https://www.linkedin.com/in/kartik-verma-037238259
+                https://www.linkedin.com/in/jatin-097511212
               </a>{" "}
             </p>
           </div>
