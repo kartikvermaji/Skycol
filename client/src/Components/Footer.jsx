@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="h-full p-4 Z-10 relative bg-slate-800 text-white container mx-auto text-center">
         <div class="footer-content">
           <div class="footer-section about">
-            <h2 className="text-xl font-semibold">About Us</h2>
+            <h2 className="text-xl font-semibold">About Me</h2>
             <p>Empowering connections through technology, we are SKYCOL </p>
             <p>
               {" "}

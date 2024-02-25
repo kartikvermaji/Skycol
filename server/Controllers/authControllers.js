@@ -1,6 +1,8 @@
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt"
+import argon2 from "argon2"
 import jwt from "jsonwebtoken";
 import USERS from "../Models/userModel.js";
+
 
 //Register User
 export const Register = async (req, res) => {
@@ -14,13 +16,15 @@ export const Register = async (req, res) => {
       location,
       occupation,
     } = req.body;
-    const salt=await bcrypt.genSalt();
-    const hashedPassword= await bcrypt.hash(password,salt);
+    // const salt=await bcrypt.genSalt();
+    // const hashedPassword= await bcrypt.hash(password,salt);
+    const hashedPassword = await argon2.hash(password);
     const newUser=new USERS({
         firstName,
         lastName,
         email,
         password:hashedPassword,
+        // password,
         picturePath,
         location,
         occupation
@@ -32,14 +36,18 @@ export const Register = async (req, res) => {
   }
 };
 //Login User
+
 export const Login=async(req,res)=>{
     try{
         const{email,password}=req.body;
         const user=await USERS.findOne({email:email});
         if(!user){return res.status(404).json({message:"User Not Found"})}
 
-        const match=await bcrypt.compare(password,user.password);
+        
+        // const match=await bcrypt.compare(password,user.password);
+        const match = await argon2.verify(user.password,password);
         if(!match){ return res.status(400).json({ msg: "Invalid credentials." })}
+        
 
         const token=jwt.sign({id:user._id},process.env.JWT_SECRET);
         delete user.password
