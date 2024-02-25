@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
-  "author": "Jatin",
+  "author": "Kartik Verma",
   "license": "ISC",
   "dependencies": {
     "argon2": "^0.31.2",

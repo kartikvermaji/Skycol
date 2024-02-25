@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="h-full p-4 Z-10 relative bg-slate-800 text-white container mx-auto text-center">
         <div class="footer-content">
           <div class="footer-section about">
-            <h2 className="text-xl font-semibold">About Me</h2>
+            <h2 className="text-xl font-semibold">About Us</h2>
             <p>Empowering connections through technology, we are SKYCOL </p>
             <p>
               {" "}
@@ -20,19 +20,19 @@ const Footer = () => {
             <p>
               Email:{" "}
               <a
-                href="mailto:jatin662413@gmail.com"
+                href="mailto:kartikvermaji03@gmail.com"
                 className="hover:text-slate-400"
               >
-                jatin662413@gmail.com
+                kartikvermaji03@gmail.com
               </a>
             </p>
             <p>
               Linkedin:
               <a
-                href="https://www.linkedin.com/in/jatin-097511212"
+                href="https://www.linkedin.com/in/kartik-verma-037238259"
                 className="hover:text-slate-400"
               >
-                https://www.linkedin.com/in/jatin-097511212
+                https://www.linkedin.com/in/kartik-verma-037238259
               </a>{" "}
             </p>
           </div>
@@ -42,20 +42,20 @@ const Footer = () => {
             <h2>Follow Us</h2>
             <div className="space-x-2">
               <a
-                href="https://www.linkedin.com/in/jatin-097511212"
+                href="https://www.linkedin.com/in/kartik-verma-037238259"
                 className="hover:text-slate-400"
               >
                 Linkedin
               </a>
               <a
-                href="https://github.com/Jatin69XD"
+                href="https://github.com/kartikvermaji"
                 className="hover:text-slate-400"
               >
                 {" "}
                 Github
               </a>
               <a
-                href="mailto:jatin662413@gmail.com" 
+                href="mailto:kartikvermaji03@gmail.com" 
                 className="hover:text-slate-400"
               >
                 Gmail
@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div class="footer-bottom">
           <p>&copy; 2024 SKYCOL | All Rights Reserved</p>
-          <p>Author: </p>jatin
+          <p>Author: </p>Kartik Verma
         </div>
       </footer>
     </div>

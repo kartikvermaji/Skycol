@@ -16,25 +16,25 @@ const Contact = () => {
         </p>
         <h2 className="my-5 text-lg">
         <span className="font-semibold text-xl">Email:{" "}</span>
-          <a href="mailto:jatin662413@gmail.com" className="text-blue-900 hover:text-blue-500">
-          jatin662413@gmail.com
+          <a href="mailto:kartikvermaji03@gmail.com" className="text-blue-900 hover:text-blue-500">
+          kartikvermaji03@gmail.com
           </a>
         </h2>
         <h2 className="my-5 text-lg">
           <span className="font-semibold text-xl">LinkedIn:{" "}</span>
           
-          <a href="https://www.linkedin.com/in/jatin-097511212"className="text-blue-900 hover:text-blue-500">
-          https://www.linkedin.com/in/jatin-097511212
+          <a href="https://www.linkedin.com/in/kartik-verma-037238259"className="text-blue-900 hover:text-blue-500">
+          https://www.linkedin.com/in/kartik-verma-037238259
           </a>
         </h2>
         <h2 className="my-5 text-lg">
         <span className="font-semibold text-xl">Github:{" "}</span>
-          <a href="https://github.com/Jatin69XD" className="text-blue-900 hover:text-blue-500">
-          https://github.com/Jatin69XD
+          <a href="https://github.com/kartikvermaji" className="text-blue-900 hover:text-blue-500">
+          https://github.com/kartikvermaji
           </a>{" "}
         </h2>
         <p className="text-lg">I am look forward to connecting with you!</p>
-        <p className="text-xl mt-5 font-semibold">Jatin 💖💖</p>
+        <p className="text-xl mt-5 font-semibold">Kartik Verma 💖💖</p>
         <p className="text-xl font-semibold">DTU</p>
       </div>
       <Footer/>
