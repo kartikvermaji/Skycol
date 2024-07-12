@@ -45,20 +45,23 @@ Skycol is a full-featured social media application built using the MERN stack (M
 
 1. **Clone the repository**:
    git clone https://github.com/your-username/skycol.git
+   ```sh
    cd skycol
    ```
 
-2. **Install server dependencies**:
+3. **Install server dependencies**:
+    ```sh
    cd server
    npm install
    ```
 
-3. **Install client dependencies**:
+5. **Install client dependencies**:
+   ```sh
    cd ../client
    npm install
    ```
 
-4. **Start the development server**:
+7. **Start the development server**:
 
    In the `server` directory, run:
    ```sh
