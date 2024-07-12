@@ -13,7 +13,7 @@ const FriendList = ({owner}) => {
 
   const getFriends = async () => {
     const res = await axios.get(
-      `http://localhost:3001/user/${owner._id}/friends`,
+      `https://skycol-server.onrender.com/user/${owner._id}/friends`,
       {
         headers: { authorization: token },
       }

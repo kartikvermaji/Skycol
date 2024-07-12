@@ -23,7 +23,7 @@ const NewPost = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/posts",
+        "https://skycol-server.onrender.com/posts",
         {
           userId: user._id,
           description: description,

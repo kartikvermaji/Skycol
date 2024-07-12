@@ -28,7 +28,7 @@ const Post = ({ post }) => {
   const isfriend = friends.find((friend) => friend._id === post.userId);
   const handleLike = async () => {
     const res = await axios.patch(
-      `http://localhost:3001/posts/${post._id}/like`,
+      `https://skycol-server.onrender.com/posts/${post._id}/like`,
       {
         userId: loggedUser._id,
       },
@@ -43,7 +43,7 @@ const Post = ({ post }) => {
   };
   const handleFriend = async () => {
     const res = await axios.patch(
-      `http://localhost:3001/user/${loggedUser._id}/${post.userId}`,
+      `https://skycol-server.onrender.com/user/${loggedUser._id}/${post.userId}`,
       {},
       {
         headers: { authorization: token },
@@ -55,7 +55,7 @@ const Post = ({ post }) => {
   const SubmitComment = async () => {
     try {
       const res = await axios.patch(
-        `http://localhost:3001/posts/${post._id}`,
+        `https://skycol-server.onrender.com/posts/${post._id}`,
         {
           comment: comment,
         },

@@ -13,14 +13,14 @@ const Feeds = ({ userId, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await axios.get("http://localhost:3001/posts", {
+    const response = await axios.get("https://skycol-server.onrender.com/posts", {
       headers: { authorization: token },
     });
     dispatch(setPosts({ posts: response.data }));
   };
   const getUserPosts = async () => {
     const response = await axios.get(
-      `http://localhost:3001/posts/${userId._id}/posts`,
+      `https://skycol-server.onrender.com/posts/${userId._id}/posts`,
       {
         headers: { authorization: token },
       }

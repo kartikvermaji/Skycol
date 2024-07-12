@@ -51,7 +51,7 @@ const LOGIN=()=>{
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try {
-            const response=await axios.post("http://localhost:3001/auth/login", formData);
+            const response=await axios.post("https://skycol-server.onrender.com/auth/login", formData);
             dispatch(
                 setLogin({
                     user:response.data.user,
@@ -100,7 +100,7 @@ const REGISTER=()=>{
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try {
-            const response=await axios.post("http://localhost:3001/auth/register", formData);
+            const response=await axios.post("https://skycol-server.onrender.com/auth/register", formData);
             enqueueSnackbar("User Registered Successfully!",{variant:"success"})
           } catch (err) {
             enqueueSnackbar("Please fill all the Feilds",{variant:"error"})

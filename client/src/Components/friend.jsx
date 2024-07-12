@@ -22,7 +22,7 @@ const Friend = ({ value, owner }) => {
 
   const handleFriend = async () => {
     const res = await axios.patch(
-      `http://localhost:3001/user/${user._id}/${value._id}`,
+      `https://skycol-server.onrender.com/user/${user._id}/${value._id}`,
       {},
       {
         headers: { authorization: token },

@@ -14,7 +14,7 @@ const Profile = () => {
   const token = useSelector((state) => state.token);
 
   const getUser = async () => {
-    const res = await axios.get(`http://localhost:3001/user/${userId}`, {
+    const res = await axios.get(`https://skycol-server.onrender.com/user/${userId}`, {
       headers: { authorization: token },
     });
     setUser(res.data);
